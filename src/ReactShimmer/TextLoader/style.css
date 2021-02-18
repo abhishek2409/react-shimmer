@@ -1,0 +1,6 @@
+.shimmer--text-wrapper{
+  width: 100%;
+  height: 10px;
+  min-width: 100px;
+  background-color: #cccccc;
+}
