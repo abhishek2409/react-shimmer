@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactShimmer from './ReactShimmer';
+import ExampleApp from './ExampleApp'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReactShimmer />
+    <ExampleApp />
   </React.StrictMode>,
   document.getElementById('root')
 );

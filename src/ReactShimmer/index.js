@@ -1,70 +1,51 @@
-import React, { lazy, Suspense  } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
-
-const ImageLoader = lazy(() => import('./ImageLoader'))
-const TextLoader = lazy(() => import('./TextLoader'))
-
-
+import './style.css'
 
 let ReactShimmer = (props) => {
+  const {
+    wrapperStyle,
+    isLoading,
+    width,
+    height,
+    duration,
+    cssClass
+  } = props
 
-  const { entireSectionLoader, onlyImageLoader, onlyTextLoader, isLoading } = props
+  const calcShimmerStyle = useCallback(() => {
+    return{
+      backgroundSize: `${width * 10}px ${height}px`,
+      animationDuration: `${(duration / 1000).toFixed(1)}s`
+    }
+  })
 
-  const imageLoaderProps = {
-    isLoading,
-    wrapperStyle:{
-      width:"300px",
-      height:"300px",
-      marginBottom:"20px"
-    }
+  const shimmerStyle = {
+    ...wrapperStyle,
+    ...calcShimmerStyle(),
+    height:`${height}px`,
+    width:`${width}px`,
   }
-  const textLoader1Props = {
-    isLoading,
-    wrapperStyle:{
-      width:"300px",
-      marginBottom:"10px"
-    }
-  }
-  const textLoader2Props = {
-    isLoading,
-    wrapperStyle:{
-      width:"250px",
-      marginBottom:"10px"
-    }
-  }
-  const textLoader3Props = {
-    isLoading,
-    wrapperStyle:{
-      width:"250px"
-    }
-  }
-
   return (
-    <div className="shimmer--wrapper">
-      <Suspense fallback={<></>}>
-        <ImageLoader {...imageLoaderProps} />
-        <TextLoader {...textLoader1Props} />
-        <TextLoader {...textLoader2Props} />
-        <TextLoader {...textLoader3Props} />
-      </Suspense>
-    </div>
+    <div style={shimmerStyle} className={`${cssClass} shimmer`}></div>
   );
 }
 
 ReactShimmer.propTypes = {
-  entireSectionLoader:PropTypes.bool,
-  onlyImageLoader:PropTypes.bool,
-  onlyTextLoader:PropTypes.bool,
-  isLoading:PropTypes.bool
-}
-
+  wrapperStyle: PropTypes.object,
+  isLoading: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  duration:PropTypes.number,
+  cssClass:PropTypes.string
+};
 ReactShimmer.defaultProps = {
-  entireSectionLoader:true,
-  onlyTextLoader:false,
-  onlyImageLoader:false,
-  isLoading:true
+  wrapperStyle: {},
+  isLoading: false,
+  width: 400,
+  height: 400,
+  duration:1600,
+  cssClass:""
 }
 
 export default ReactShimmer;
