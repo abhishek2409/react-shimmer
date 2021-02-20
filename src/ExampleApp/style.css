@@ -36,3 +36,20 @@
 .makeFlex.flexColumn{
   flex-direction: column;
 }
+.section__item{
+  width: 100%;
+  min-height: 350px;
+  padding: 20px 0;
+}
+.section__item:not(:last-of-type){
+  border-bottom: 1px solid #ccc;
+}
+.btn{
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 10px 20px;
+  min-width: 100px;
+  background: none;
+  outline: 0;
+  cursor: pointer;
+}

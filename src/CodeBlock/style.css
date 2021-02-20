@@ -2,3 +2,22 @@
   background-color: #eeeeee;
   padding: 20px;
 }
+.codeblock--table{
+  border: 1px solid #444;
+}
+
+.codeblock--table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.codeblock--table td, .codeblock--table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.codeblock--table tr:nth-child(even) {
+  background-color: #dddddd;
+}

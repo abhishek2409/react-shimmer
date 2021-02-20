@@ -1,14 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, Fragment } from 'react';
 
 import './style.css';
 import ReactShimmer  from '../../ReactShimmer'
-import CodeBlock from '../../CodeBlock';
 
-
-const codeBlock = `
-import ReactShimmer  from '../../ReactShimmer';
-
-const ImageLoader = ({src}) => {
+const ImageLoader = ({src, width, height, shimmerCssClass}) => {
   const [isLoading, changeLoadingState] = useState(true)
 
   const onImageLoad = useCallback((e) => {
@@ -16,39 +11,15 @@ const ImageLoader = ({src}) => {
   }, [])
 
   return (
-    <div>
-      <ReactShimmer width={500} height={281}/>
+    <Fragment>
+      {isLoading ? (<ReactShimmer cssClass={shimmerCssClass} width={width} height={height}/>) : null}
       <img src={src} onLoad={onImageLoad} />
-    </div>
-  );
-}
-`
-
-const ImageLoader = ({src}) => {
-  const [isLoading, changeLoadingState] = useState(true)
-
-  const onImageLoad = useCallback((e) => {
-    changeLoadingState(false)
-  }, [])
-
-  return (
-    <div className="image--wrapper">
-      <h3 className="appendBottom20">Image Example</h3>
-      <div className="makeFlex">
-        <div className="image--box">
-          {isLoading ? (<ReactShimmer cssClass={"image--shimmer"} width={500} height={281}/>) : null}
-          <img src={src} onLoad={onImageLoad} />
-        </div>
-        <CodeBlock code={codeBlock}/>
-      </div>
-    </div>
+    </Fragment>
   );
 }
 
-
-
-
-
-
+ImageLoader.defaultProps = {
+  shimmerCssClass:"image--shimmer"
+}
 
 export default ImageLoader;

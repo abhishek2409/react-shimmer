@@ -1,22 +1,32 @@
 import React from 'react';
 
 import './style.css';
-import ImageLoader from './ImageLoader';
-import SectionLoader from './SectionLoader';
+import ImageLoaderExample from './ImageLoader/example';
+import SectionLoaderExample from './SectionLoader';
+import TextLoaderExample from './TextLoader/example';
+import CodeBock from '../CodeBlock';
 
-let ExampleApp = (props) => {
-  const data = {
-    imageSrc: "https://source.unsplash.com/5760x3240/?alone",
-    title:"Section Title",
-    text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  }
+let ExampleApp = () => {
   return (
     <div className="exampleapp--wrapper">
       {/* // Example 1. Image Loader */}
-      <ImageLoader src="https://source.unsplash.com/5760x3240/?nature,water" />
+      <div className="section__item">
+        <ImageLoaderExample />
+      </div>
+
       {/* // Example 2. Image with Text */}
-      <SectionLoader data={data} />
+      <div className="section__item">
+        <SectionLoaderExample />
+      </div>
+
       {/* // Example 3 Text Loader */}
+      <div className="section__item">
+        <TextLoaderExample />
+      </div>
+      {/* // Usage */}
+      <div className="section__item">
+        <CodeBock />
+      </div>
     </div>
   );
 }
