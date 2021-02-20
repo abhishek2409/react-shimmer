@@ -1,0 +1,35 @@
+.section--wrapper{
+  margin-bottom: 20px;
+  width: 100%;
+  min-height: 400px;
+}
+.section--wrapper .image--box {
+  width: 500px;
+  position: relative;
+}
+
+.section--wrapper .image--box img {
+  max-width: 100%;
+  position: absolute;
+}
+
+.section--wrapper .image--box .image--shimmer {
+  position: absolute;
+}
+
+.section--wrapper .title--shimmer {
+  margin-bottom: 20px;
+}
+
+.section--wrapper .text--shimmer {
+  margin-bottom: 5px;
+}
+
+.section--wrapper.three .image--box{
+  min-height: 300px;
+  margin-bottom: 20px;
+}
+
+.section--wrapper .text--section{
+  width: 500px;
+}

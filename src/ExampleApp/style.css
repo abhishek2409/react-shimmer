@@ -1,0 +1,38 @@
+*{
+  margin:0;
+  padding: 0;
+}
+.exampleapp--wrapper{
+  width: 1200px;
+  margin: 120px auto;
+}
+
+.makeFlex{
+  display: flex;
+}
+.makeFlex.spaceBetween{
+  justify-content: space-between;
+}
+.makeFlex.hrtlCenter{
+  justify-content: center;
+}
+.makeFlex.perfectCenter{
+  justify-content: center;
+  align-items: center;
+}
+
+.appendRight20{
+  margin-right: 20px;
+}
+.appendLeft20{
+  margin-left: 20px;
+}
+.appendBottom20{
+  margin-bottom: 20px;
+}
+.appendTop20{
+  margin-bottom: 20px;
+}
+.makeFlex.flexColumn{
+  flex-direction: column;
+}

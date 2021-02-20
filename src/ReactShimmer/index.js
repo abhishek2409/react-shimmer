@@ -5,12 +5,7 @@ import './style.css'
 
 let ReactShimmer = (props) => {
   const {
-    wrapperStyle,
-    isLoading,
-    width,
-    height,
-    duration,
-    cssClass
+    wrapperStyle, width, height, duration, cssClass
   } = props
 
   const calcShimmerStyle = useCallback(() => {
@@ -33,7 +28,6 @@ let ReactShimmer = (props) => {
 
 ReactShimmer.propTypes = {
   wrapperStyle: PropTypes.object,
-  isLoading: PropTypes.bool,
   width: PropTypes.number,
   height: PropTypes.number,
   duration:PropTypes.number,
@@ -41,7 +35,6 @@ ReactShimmer.propTypes = {
 };
 ReactShimmer.defaultProps = {
   wrapperStyle: {},
-  isLoading: false,
   width: 400,
   height: 400,
   duration:1600,

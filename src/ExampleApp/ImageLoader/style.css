@@ -1,0 +1,12 @@
+.image--wrapper .image--box{
+  width:500px;
+  position: relative;
+  margin-right: 20px;
+}
+.image--wrapper .image--box img{
+  max-width:100%;
+  position: absolute;
+}
+.image--wrapper .image--box .image--shimmer{
+  position: absolute;
+}
