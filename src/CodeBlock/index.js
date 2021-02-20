@@ -9,16 +9,19 @@ const CodeBlock = ({code}) => {
       <div className="appendBottom20">
       <h4>Usage:</h4>
       <pre><code>{`
-        import ReactShimmer from '../ReactShimmer';
+        const Example = (props) => {
 
-        const example = (props) => {
+          const isLoading = props.loading // your async data/image  loading state
           return(
             <div>
+              {isLoading ? (<ReactShimmer />) : (<img src="" />)}
+              {isLoading ? (<ReactShimmer />) : (<p>You text</p>)}
               <ReactShimmer />
             </div>
           )
         }
       `}</code></pre>
+      See ExampleApp for more usage
       </div>
       <h4 className="appendBottom20">Options</h4>
       <table className="codeblock--table">
