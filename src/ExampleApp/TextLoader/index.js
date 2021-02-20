@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 
-import ReactShimmer from '../../ReactShimmer';
+const ReactShimmer  = lazy(()=>import('../../ReactShimmer'))
 
 const TextLoader = ({data, isLoading, shimmerDimensions}) => {
   if(isLoading){
     return(
-      <Fragment>
+      <Suspense fallback={<></>}>
         <ReactShimmer cssClass={"title--shimmer"} width={shimmerDimensions?.title?.width} height={shimmerDimensions?.title?.height}/>
         {
           [0, 1, 2, 3, 4].map((item, i) => {
@@ -15,7 +15,7 @@ const TextLoader = ({data, isLoading, shimmerDimensions}) => {
           })
         }
         <ReactShimmer width={shimmerDimensions?.lastLine?.width} height={shimmerDimensions?.lastLine?.height}/>
-      </Fragment>
+      </Suspense>
     )
   }else {
     return(

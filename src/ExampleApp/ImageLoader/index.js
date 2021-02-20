@@ -1,7 +1,8 @@
-import React, { useState, useCallback, Fragment } from 'react';
+import React, { useState, useCallback, Fragment, lazy, Suspense } from 'react';
 
 import './style.css';
-import ReactShimmer  from '../../ReactShimmer'
+
+const ReactShimmer  = lazy(()=>import('../../ReactShimmer'))
 
 const ImageLoader = ({src, width, height, shimmerCssClass}) => {
   const [isLoading, changeLoadingState] = useState(true)
@@ -11,10 +12,10 @@ const ImageLoader = ({src, width, height, shimmerCssClass}) => {
   }, [])
 
   return (
-    <Fragment>
+    <Suspense fallback={<></>}>
       {isLoading ? (<ReactShimmer cssClass={shimmerCssClass} width={width} height={height}/>) : null}
       <img src={src} onLoad={onImageLoad} />
-    </Fragment>
+    </Suspense>
   );
 }
 
